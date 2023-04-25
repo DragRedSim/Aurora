@@ -137,7 +137,7 @@ namespace Aurora.Settings
                 if (key.width + key.margin_left > 0)
                     current_width += key.width.Value + key.margin_left.Value;
 
-                if (key.margin_top > 0)
+                if (key.margin_top != 0) //allow negative offsets to persist as well as positive ones
                     current_height += key.margin_top.Value;
 
 
@@ -146,7 +146,7 @@ namespace Aurora.Settings
 
                 if (key.line_break.Value)
                 {
-                    current_height += 37;
+                    current_height += key.height.Value + 7; //dynamic height based on height of key.
                     current_width = 0;
                 }
 
